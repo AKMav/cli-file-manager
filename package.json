@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NodeJS 2022 Q4",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
