@@ -1,12 +1,12 @@
 import createArgs from './utils/createArguments.js';
-
-function enterName(args, command) {
-  const greeting = 'Welcome to the File Manage';
-  process.stdout.write(`${greeting}, ${args[command] || 'Student'}!`)
-}
-
+import { sayBi, sayHi } from './utils/greetings.js';
 
 const cliArgs = createArgs();
-enterName(cliArgs, '--username')
+const fullname = cliArgs['--username'] || 'Student';
+sayHi(fullname);
+sayBi(fullname);
+
+
+
 
 // process.stdout.write(cliArgs);
