@@ -1,22 +1,36 @@
 import transformCommandLine from "./cmdTransform.js";
-// import goUp from '../operations/cd/goUp.js';
-// import pwd from "../utils/printWorkingDirectory.js";
+import { msgError } from "../global.js";
+import { invalidInputError } from "../global.js";
 import { cmdDispatcher } from "./cmdDispatch.js";
 import { commandProxy } from "../global.js";
 
 function commandHandler(command) {
   const [operator, ...args] = transformCommandLine(command);
-  switch (operator) {
-    case 'up':
-      cmdDispatcher(commandProxy[operator]);
-      break;
-    case 'cd':
+
+  if (!commandProxy[operator]) {
+    console.error(invalidInputError)
+  } else {
+    try {
       cmdDispatcher(commandProxy[operator], args);
-      break;
-    default:
-      console.log('Invalid operation')
-      return;
+    } catch (err) {
+      console.error(msgError)
+    }
   }
+
+  // switch (operator) {
+  //   case 'up':
+  //     cmdDispatcher(commandProxy[operator]);
+  //     break;
+  //   case 'cd':
+  //     cmdDispatcher(commandProxy[operator], args);
+  //     break;
+  //   case 'cd':
+  //     cmdDispatcher(commandProxy[operator], args);
+  //     break;
+  //   default:
+  //     console.log('Invalid operation')
+  //     return;
+  // }
 }
 
 export {

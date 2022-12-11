@@ -1,6 +1,7 @@
-import { goUp, changeDirectory } from "./operations/cd/index.js";
+import { goUp, changeDirectory, printFiles } from "./operations/cd/index.js";
 
 export const msgError = 'Operation failed';
+export const invalidInputError = 'Invalid input';
 
 export const commandProxy = {
   get up() {
@@ -8,5 +9,8 @@ export const commandProxy = {
   },
   get cd() {
     return changeDirectory
+  },
+  get ls() {
+    return printFiles
   },
 }
