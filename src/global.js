@@ -4,7 +4,9 @@ export const msgError = 'Operation failed';
 
 export const commandProxy = {
   get up() {
-    return goUp()
+    return goUp
   },
-  'cd': changeDirectory,
+  get cd() {
+    return changeDirectory
+  },
 }
