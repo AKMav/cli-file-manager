@@ -1,7 +1,7 @@
 import { readdir } from 'fs/promises';
 import { resolve } from 'path';
 import { cwd } from 'process';
-import { msgError } from "../../global.js";
+import { msgError } from "../../utils/globalVar.js";
 
 export default async function printFiles() {
   try {

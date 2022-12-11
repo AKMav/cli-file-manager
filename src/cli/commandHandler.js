@@ -1,8 +1,7 @@
 import transformCommandLine from "./cmdTransform.js";
-import { msgError } from "../global.js";
-import { invalidInputError } from "../global.js";
+import { invalidInputError, msgError } from "../utils/globalVar.js";
 import { cmdDispatcher } from "./cmdDispatch.js";
-import { commandProxy } from "../global.js";
+import { commandProxy } from "./cmdProxy.js";
 
 function commandHandler(command) {
   const [operator, ...args] = transformCommandLine(command);

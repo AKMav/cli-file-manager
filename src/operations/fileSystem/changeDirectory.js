@@ -1,5 +1,5 @@
 import { chdir } from 'process';
-import { msgError } from "../../global.js";
+import { msgError } from "../../utils/globalVar.js";
 
 export default async function changeDirectory([path]) {
   try {
