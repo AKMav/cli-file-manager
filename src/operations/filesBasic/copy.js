@@ -1,5 +1,6 @@
 import { parse, resolve } from 'path';
 import { createReadStream, createWriteStream } from 'fs';
+import { pipeline } from 'stream/promises';
 import { operationError } from '../../utils/globalVar.js';
 
 export default async function ([source, dest]) {
@@ -9,13 +10,7 @@ export default async function ([source, dest]) {
     const destFile = resolve(dest, base);
     const readableStream = createReadStream(sourcePath);
     const writableStream = createWriteStream(destFile);
-    readableStream.on('error', () => {
-      console.error(operationError, ' no such file or directory to read file')
-    })
-    writableStream.on('error', () => {
-      console.error(operationError, 'no such file or directory to write file')
-    })
-    readableStream.pipe(writableStream);
+    await pipeline(readableStream, writableStream);
   } catch (err) {
     console.error(operationError)
   }
