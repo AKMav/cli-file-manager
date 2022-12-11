@@ -1,6 +1,6 @@
 import { logOut } from "../operations/authorization/index.js";
 import { goUp, changeDirectory, printFiles } from "../operations/fileSystem/index.js";
-import { catFile, addFile, renameFile } from '../operations/filesBasic/index.js'
+import { catFile, addFile, renameFile, copyFile } from '../operations/filesBasic/index.js'
 
 export const commandProxy = {
   get '.exit'() {
@@ -23,5 +23,8 @@ export const commandProxy = {
   },
   get rn() {
     return renameFile
+  },
+  get cp() {
+    return copyFile
   },
 }
