@@ -1,8 +1,6 @@
-import { createReadStream, read } from 'fs';
+import { createReadStream } from 'fs';
 import { Writable } from 'stream';
 import { resolve } from 'path';
-import { stdout } from 'process';
-// import { pipeline } from 'stream/promises';
 import { msgError } from '../../utils/globalVar.js';
 
 

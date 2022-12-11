@@ -9,27 +9,8 @@ function commandHandler(command) {
   if (!commandProxy[operator]) {
     console.error(invalidInputError)
   } else {
-    try {
-      cmdDispatcher(commandProxy[operator], args);
-    } catch (err) {
-      console.error(msgError)
-    }
+    cmdDispatcher(commandProxy[operator], args);
   }
-
-  // switch (operator) {
-  //   case 'up':
-  //     cmdDispatcher(commandProxy[operator]);
-  //     break;
-  //   case 'cd':
-  //     cmdDispatcher(commandProxy[operator], args);
-  //     break;
-  //   case 'cd':
-  //     cmdDispatcher(commandProxy[operator], args);
-  //     break;
-  //   default:
-  //     console.log('Invalid operation')
-  //     return;
-  // }
 }
 
 export {
