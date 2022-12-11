@@ -1,21 +1,15 @@
-import createArgs from './utils/createArguments.js';
-import pwd from './utils/printWorkingDirectory.js';
-import { sayBi, sayHi } from './utils/greetings.js';
 import readline from 'readline';
-
-const cliArgs = createArgs();
-const fullname = cliArgs['--username'] || 'Student';
-sayHi(fullname);
-pwd();
+import { sayBi } from './utils/greetings.js';
+import { authorization, fullname } from './operations/authorization/index.js';
+import { commandHandler } from './cli/commandHandler.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-rl.on('close', () => {
-  sayBi(fullname);
-});
-
-
-// process.stdout.write(cliArgs);
+authorization();
+rl.on('line', commandHandler)
+  .on('close', () => {
+    sayBi(fullname);
+  });
