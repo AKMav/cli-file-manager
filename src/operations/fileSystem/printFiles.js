@@ -1,7 +1,7 @@
 import { readdir } from 'fs/promises';
 import { resolve } from 'path';
 import { cwd } from 'process';
-import { msgError } from "../../utils/globalVar.js";
+import { operationError } from "../../utils/globalVar.js";
 
 export default async function printFiles() {
   try {
@@ -9,6 +9,6 @@ export default async function printFiles() {
     const files = await readdir(currentDirectory);
     console.table(files);
   } catch (err) {
-    console.error(msgError);
+    console.error(operationError);
   }
 }

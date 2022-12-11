@@ -1,7 +1,7 @@
 import { open } from 'fs/promises';
 import { resolve } from 'path';
 import { cwd } from 'process';
-import { msgError } from '../../utils/globalVar.js';
+import { operationError } from '../../utils/globalVar.js';
 
 export default async function ([dest]) {
   try {
@@ -9,6 +9,6 @@ export default async function ([dest]) {
     const newFile = await open(filePath, 'w');
     newFile.close();
   } catch (err) {
-    console.error(msgError)
+    console.error(operationError)
   }
 }

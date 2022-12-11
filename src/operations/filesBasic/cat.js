@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import { Writable } from 'stream';
 import { resolve } from 'path';
-import { msgError } from '../../utils/globalVar.js';
+import { operationError } from '../../utils/globalVar.js';
 
 
 export default async function ([src]) {
@@ -12,7 +12,7 @@ export default async function ([src]) {
       { encoding: 'utf8' }
     );
     readStream.on('error', () => {
-      console.error(msgError);
+      console.error(operationError);
     })
     const writer = new Writable({
       write(chunk) {
@@ -21,6 +21,6 @@ export default async function ([src]) {
     });
     readStream.pipe(writer);
   } catch (err) {
-    console.error(msgError);
+    console.error(operationError);
   }
 }
