@@ -4,6 +4,6 @@ export default async function goUp() {
   try {
     chdir('..')
   } catch (err) {
-    throw err;
+    console.error(msgError);
   }
 }

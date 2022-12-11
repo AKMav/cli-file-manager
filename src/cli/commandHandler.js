@@ -7,6 +7,9 @@ import { commandProxy } from "../global.js";
 function commandHandler(command) {
   const [operator, ...args] = transformCommandLine(command);
   switch (operator) {
+    case 'up':
+      cmdDispatcher(commandProxy[operator]);
+      break;
     case 'cd':
       cmdDispatcher(commandProxy[operator], args);
       break;

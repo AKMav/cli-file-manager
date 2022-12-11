@@ -1,7 +1,10 @@
-import goUp from "./operations/cd/goUp.js";
+import { goUp, changeDirectory } from "./operations/cd/index.js";
 
 export const msgError = 'Operation failed';
 
 export const commandProxy = {
-  'cd': goUp,
+  get up() {
+    return goUp()
+  },
+  'cd': changeDirectory,
 }
