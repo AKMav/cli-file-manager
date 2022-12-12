@@ -3,6 +3,8 @@ import { goUp, changeDirectory, printFiles } from "../operations/fileSystem/inde
 import { catFile, addFile, renameFile, copyFile, moveFile, deleteFile } from '../operations/filesBasic/index.js'
 import osInfo from '../operations/systemInfo/index.js';
 import createHash from '../operations/hash/index.js';
+import compressFile from '../operations/archivate/compress.js';
+import decompressFile from '../operations/archivate/decompress.js';
 
 export const commandProxy = {
   get '.exit'() {
@@ -40,5 +42,11 @@ export const commandProxy = {
   },
   get hash() {
     return createHash
+  },
+  get compress() {
+    return compressFile
+  },
+  get decompress() {
+    return decompressFile
   },
 }
