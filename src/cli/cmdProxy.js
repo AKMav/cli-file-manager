@@ -1,7 +1,8 @@
 import { logOut } from "../operations/authorization/index.js";
 import { goUp, changeDirectory, printFiles } from "../operations/fileSystem/index.js";
 import { catFile, addFile, renameFile, copyFile, moveFile, deleteFile } from '../operations/filesBasic/index.js'
-import osInfo from '../operations/systemInfo/index.js'
+import osInfo from '../operations/systemInfo/index.js';
+import createHash from '../operations/hash/index.js';
 
 export const commandProxy = {
   get '.exit'() {
@@ -36,5 +37,8 @@ export const commandProxy = {
   },
   get os() {
     return osInfo
-  }
+  },
+  get hash() {
+    return createHash
+  },
 }

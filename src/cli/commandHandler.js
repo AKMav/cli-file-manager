@@ -1,5 +1,5 @@
 import transformCommandLine from "./cmdTransform.js";
-import { invalidInputError, operationError } from "../utils/globalVar.js";
+import { invalidInputError } from "../utils/globalVar.js";
 import { cmdDispatcher } from "./cmdDispatch.js";
 import { commandProxy } from "./cmdProxy.js";
 
