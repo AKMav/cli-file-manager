@@ -1,0 +1,24 @@
+{
+  "name": "cli-file-manager",
+  "version": "1.0.0",
+  "description": "NodeJS 2022 Q4",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKMav/cli-file-manager.git"
+  },
+  "keywords": [
+    "cli",
+    "file-manager"
+  ],
+  "author": "Mavrayev Akmal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AKMav/cli-file-manager/issues"
+  },
+  "homepage": "https://github.com/AKMav/cli-file-manager#readme"
+}
