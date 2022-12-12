@@ -17,7 +17,7 @@ export default async function ([sourceFile, pathTo]) {
       const { name, ext } = parse(fromFile);
 
       if (!ext.startsWith('.br')) {
-        throw new Error();
+        throw new Error('File is not have .br extension');
       }
 
       const targetDest = resolve(pathTo, name);
@@ -31,7 +31,7 @@ export default async function ([sourceFile, pathTo]) {
         writeStream
       )
     } catch (err) {
-      console.error(operationError);
+      console.error(err.message || operationError);
     }
   }
 }
